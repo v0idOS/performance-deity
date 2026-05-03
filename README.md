@@ -40,6 +40,14 @@ Performance Deity provides 5 interconnected skills (deities) that force the AI t
 **Triggers:** "slow build", "webpack", "docker"
 - Optimizes Webpack chunking, Docker layer caching, and reduces GitHub Actions workflow times.
 
+### 👁️ 8. The Watcher (`performance-deity:telemetry`)
+**Triggers:** "add logging", "telemetry", "datadog"
+- Wraps your code in OpenTelemetry traces so you have X-Ray vision in production.
+
+### 🎨 9. The Frame-Rate Enforcer (`performance-deity:ui`)
+**Triggers:** "slow ui", "react optimization", "animation jitter"
+- Forces GPU hardware acceleration and prevents unnecessary React DOM re-renders to secure 60FPS.
+
 ---
 
 ## Included Tooling
