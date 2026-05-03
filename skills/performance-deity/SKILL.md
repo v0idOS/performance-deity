@@ -16,7 +16,12 @@ When activated, you (the agent) MUST follow these exact steps sequentially. **Do
 
 ### Phase 1: Establish Baseline
 1. Identify the target code the user wants to optimize.
-2. Write a temporary micro-benchmark script for the target language (e.g., using `timeit` for Python, `performance.now()` for Node.js, or the included `tools/Measure-Performance.ps1` for PowerShell/Shell).
+2. Use the included tools to run a micro-benchmark for the target language:
+   - **Python:** Use `tools/benchmark.py "<code snippet>"`
+   - **Node/JS:** Use `node tools/benchmark.js "<code snippet>"`
+   - **PowerShell:** Use `tools/Measure-Performance.ps1 -Command "<cmd>"`
+   - **Bash/Shell:** Use `bash tools/benchmark.sh "<cmd>"`
+   - If the language isn't supported by these tools, write a custom micro-benchmark script that calculates Average and P95.
 3. Execute the benchmark. Ensure there is a "warm up" phase. Record the `P95` and `Average` execution time over at least 100 iterations.
 4. **Report the baseline** to the user. Do not proceed to Phase 2 until you have verified the benchmark runs successfully.
 

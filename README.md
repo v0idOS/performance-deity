@@ -28,8 +28,11 @@ claude --plugin-dir /path/to/performance-deity
 
 ## Included Tooling
 
-The plugin ships with an automated benchmarking suite:
-- `tools/Measure-Performance.ps1`: A professional PowerShell benchmarking tool that warms up execution environments and calculates Average, Min, Max, and P95 execution times.
+The plugin ships with an automated, cross-platform benchmarking suite for any tech stack:
+- `tools/benchmark.py`: Python script runner utilizing `timeit` and `statistics`.
+- `tools/benchmark.js`: Node.js script runner utilizing V8 `perf_hooks`.
+- `tools/Measure-Performance.ps1`: Professional PowerShell benchmarking.
+- `tools/benchmark.sh`: POSIX-compliant bash benchmarking.
 
 ## Philosophy
 
