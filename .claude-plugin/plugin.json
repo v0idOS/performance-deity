@@ -1,13 +1,16 @@
 {
   "name": "performance-deity",
-  "version": "1.0.0",
-  "description": "A complete algorithmic optimization methodology for coding agents. Forces the agent to profile, benchmark, and recursively optimize code for maximum execution speed.",
+  "version": "2.0.0",
+  "description": "A complete performance engineering methodology for coding agents. Features 5 interconnected skills for CPU optimization, memory profiling, concurrency fuzzing, database indexing, and chaos engineering.",
   "author": "v0idOS",
   "keywords": [
     "performance",
     "optimization",
     "benchmarking",
     "claude-code",
-    "agent-skills"
+    "agent-skills",
+    "memory-leak",
+    "concurrency",
+    "stress-test"
   ]
 }

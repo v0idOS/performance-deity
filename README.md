@@ -1,38 +1,50 @@
 # Performance Deity ⚡
 
-**Performance Deity** is a complete algorithmic optimization methodology for your coding agents, built on top of a set of composable skills. It transforms your AI coding assistant from a standard code generator into an obsessive, world-class performance engineer.
+**Performance Deity** is a ruthlessly strict, interconnected performance engineering methodology for your coding agents. It transforms your AI coding assistant from a standard code generator into an obsessive, world-class Site Reliability and Performance Engineer.
 
-## How it Works
+## The Problem
+Standard AI agents write code that "works". They rarely write code that is blazing fast, thread-safe, or resilient to memory leaks. 
 
-When you tell your agent to optimize a piece of code, it doesn't just guess or apply random best practices. Instead, it activates the `performance-deity` workflow, which enforces a strict, data-driven approach to optimization:
+## The Solution
+Performance Deity provides 5 interconnected skills (deities) that force the AI to mathematically prove its code is performant, safe, and resilient before presenting it to you.
 
-1. **Baselines**: It automatically writes a micro-benchmark for the target code and profiles it to get a ground-truth execution time.
-2. **Analyzes**: It calculates Big-O time and space complexity, identifying memory leaks, redundant loops, and GC bottlenecks.
-3. **Refactors**: It rewrites the hot-path to be as fast as physically possible (e.g., swapping O(N) arrays for O(1) hash maps, reducing allocations).
-4. **Proves**: It runs the benchmark again. If the new code isn't faster, the agent throws it away and tries again. It only presents the final code to you once it has **mathematical proof** of a performance increase.
+---
 
-## Installation
+## The Pantheon of Skills
 
-### Claude Code (Standalone)
-You can run this plugin locally in your project without needing to publish it to a marketplace.
+### ⚡ 1. The Hot-Path Optimizer (`performance-deity:optimize`)
+**Triggers:** "optimize", "speed up", "benchmark"
+- Writes micro-benchmarks, analyzes Big-O complexity, refactors for speed, and mathematically proves latency reduction (e.g., swapping arrays for hash maps).
 
-```bash
-claude --plugin-dir /path/to/performance-deity
-```
+### 🧠 2. The Leak Hunter (`performance-deity:memory`)
+**Triggers:** "memory leak", "OOM", "high RAM"
+- Instruments memory tracking, identifies uncollected references, and implements object pooling or weak references to stabilize GC pauses.
 
-*(Note: To make it permanent for a project, you can copy the `skills/` and `tools/` directories into your project's local `.claude/` directory).*
+### 🧵 3. The Race Condition Killer (`performance-deity:concurrency`)
+**Triggers:** "threading", "deadlock", "race condition"
+- Writes chaos scripts that fire 10,000 concurrent requests at your function. Proves thread unsafety, adds Atomic operations or Mutexes, and verifies 0% failure rate.
 
-## The Core Skill
+### 💾 4. The N+1 Slayer (`performance-deity:database`)
+**Triggers:** "slow query", "SQL", "N+1"
+- Forces the AI to run `EXPLAIN QUERY PLAN`, identifies missing indexes, and rewrites ORM loops into batch queries or eager loads.
 
-- `performance-deity:optimize` - Activates when you ask to optimize, speed up, or benchmark code. Enforces the strict Profile -> Analyze -> Refactor -> Prove cycle. 
+### 💥 5. The Chaos Engineer (`performance-deity:stress-test`)
+**Triggers:** "stress test", "harden this"
+- Acts as a Red Team. Bombards your code with 1GB string payloads, malformed JSON, and network drops to ensure graceful degradation.
+
+---
 
 ## Included Tooling
 
 The plugin ships with an automated, cross-platform benchmarking suite for any tech stack:
-- `tools/benchmark.py`: Python script runner utilizing `timeit` and `statistics`.
+- `tools/benchmark.py`: Python script runner utilizing `timeit`.
 - `tools/benchmark.js`: Node.js script runner utilizing V8 `perf_hooks`.
 - `tools/Measure-Performance.ps1`: Professional PowerShell benchmarking.
 - `tools/benchmark.sh`: POSIX-compliant bash benchmarking.
+
+## Installation
+
+See [docs/INSTALL.md](docs/INSTALL.md) for setup instructions across Claude Code, Cursor, and OpenCode.
 
 ## Philosophy
 
