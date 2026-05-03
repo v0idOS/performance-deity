@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Performance Deity - AI Coding Plugin</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="glow-orb"></div>
@@ -21,12 +21,12 @@
     </nav>
 
     <main>
-        <header class="hero">
+        <header class="hero fade-up">
             <h1>Guessing is a <span class="accent">Sin</span>.<br><span class="primary">Measure Everything.</span></h1>
             <p>A ruthlessly strict performance engineering methodology for AI coding agents. Forces your agent to profile, benchmark, and mathematically prove code is faster before you ever see it.</p>
             <div class="cta-buttons">
                 <a href="https://github.com/v0idOS/performance-deity" class="btn primary">View on GitHub</a>
-                <a href="#install" class="btn secondary">Install Plugin</a>
+                <a href="https://github.com/v0idOS/performance-deity/tree/main/docs/INSTALL.md" class="btn secondary">Install Plugin</a>
             </div>
             
             <div class="terminal">
@@ -47,7 +47,7 @@
             </div>
         </header>
 
-        <section id="features" class="features">
+        <section id="features" class="features fade-up">
             <h2>The Pantheon of Skills</h2>
             <p class="section-sub">A complete ecosystem for Staff-level Site Reliability Engineering.</p>
             <div class="grid">
@@ -84,7 +84,7 @@
             </div>
         </section>
 
-        <section id="install" class="installation">
+        <section id="install" class="installation fade-up">
             <h2>Installation</h2>
             <div class="install-grid">
                 <div class="install-card">
@@ -102,7 +102,7 @@
             </div>
         </section>
 
-        <section id="roadmap" class="roadmap">
+        <section id="roadmap" class="roadmap fade-up">
             <h2>The Road to 100k Stars</h2>
             <p class="section-sub">How we are taking over the AI coding space.</p>
             <div class="timeline">
@@ -141,5 +141,27 @@
     <footer>
         <p>Built with ⚡ by <a href="https://github.com/v0idOS">v0idOS</a></p>
     </footer>
+
+    <script>
+        // Simple Intersection Observer for fade-up animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
