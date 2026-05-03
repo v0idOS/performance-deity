@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Performance Deity - The Ultimate AI Coding Plugin</title>
+    <title>Performance Deity - AI Coding Plugin</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -14,18 +14,19 @@
     <nav>
         <div class="logo">Performance<span>Deity</span></div>
         <div class="links">
+            <a href="#features">Features</a>
+            <a href="#roadmap">Roadmap</a>
             <a href="https://github.com/v0idOS/performance-deity">GitHub</a>
-            <a href="INSTALL.md">Docs</a>
         </div>
     </nav>
 
     <main>
         <header class="hero">
-            <h1>Guessing is a <span>Sin</span>.<br>Measure Everything.</h1>
-            <p>A ruthlessly strict performance engineering methodology for AI coding agents. Forces your agent to profile, benchmark, and mathematically prove code is faster.</p>
+            <h1>Guessing is a <span class="accent">Sin</span>.<br><span class="primary">Measure Everything.</span></h1>
+            <p>A ruthlessly strict performance engineering methodology for AI coding agents. Forces your agent to profile, benchmark, and mathematically prove code is faster before you ever see it.</p>
             <div class="cta-buttons">
                 <a href="https://github.com/v0idOS/performance-deity" class="btn primary">View on GitHub</a>
-                <a href="INSTALL.md" class="btn secondary">Install Plugin</a>
+                <a href="#install" class="btn secondary">Install Plugin</a>
             </div>
             
             <div class="terminal">
@@ -33,11 +34,11 @@
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
-                    <span class="title">claude-code</span>
+                    <span class="title">v0id-os-agent</span>
                 </div>
                 <div class="terminal-body">
                     <p><span class="prompt">$</span> /plugin install performance-deity</p>
-                    <p class="success">✔ Plugin installed successfully.</p>
+                    <p class="success">✔ Ecosystem loaded. 6 Deities online.</p>
                     <p><span class="prompt">$</span> /plugin performance-deity:optimize</p>
                     <p class="info">Analyzing Big-O Complexity...</p>
                     <p class="info">Refactoring O(N^2) array lookup to O(1) Hash Map...</p>
@@ -46,35 +47,99 @@
             </div>
         </header>
 
-        <section class="features">
+        <section id="features" class="features">
             <h2>The Pantheon of Skills</h2>
+            <p class="section-sub">A complete ecosystem for Staff-level Site Reliability Engineering.</p>
             <div class="grid">
                 <div class="card">
                     <div class="icon">⚡</div>
                     <h3>Hot-Path Optimizer</h3>
-                    <p>Writes micro-benchmarks, analyzes complexity, and proves latency reduction.</p>
+                    <p>Writes micro-benchmarks, analyzes Big-O complexity, and proves latency reduction.</p>
                 </div>
                 <div class="card">
                     <div class="icon">🧠</div>
                     <h3>The Leak Hunter</h3>
-                    <p>Instruments memory tracking and eliminates Garbage Collection pauses.</p>
+                    <p>Instruments memory tracking, finds uncollected references, and eliminates GC pauses.</p>
                 </div>
                 <div class="card">
                     <div class="icon">🧵</div>
                     <h3>Race Condition Killer</h3>
-                    <p>Fires 10k chaos threads to break your code, then secures it with Mutexes.</p>
+                    <p>Fires 10k chaos threads to break your async code, then secures it with tight Mutexes.</p>
                 </div>
                 <div class="card">
                     <div class="icon">💾</div>
                     <h3>Database Slayer</h3>
-                    <p>Runs EXPLAIN QUERY, adds exact SQL indexes, and kills N+1 loops.</p>
+                    <p>Runs EXPLAIN QUERY PLAN, adds exact SQL indexes, and kills N+1 ORM loops.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🌐</div>
+                    <h3>Network Squeezer</h3>
+                    <p>Enables Brotli compression, GraphQL optimizations, and shrinks API payloads.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🏗️</div>
+                    <h3>Build Accelerator</h3>
+                    <p>Optimizes Docker layer caching, Webpack chunking, and GitHub Actions pipelines.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="install" class="installation">
+            <h2>Installation</h2>
+            <div class="install-grid">
+                <div class="install-card">
+                    <h3>Claude Code</h3>
+                    <code>claude --plugin-dir /repo</code>
+                </div>
+                <div class="install-card">
+                    <h3>Cursor / OpenCode</h3>
+                    <code>@performance-deity Follow rules</code>
+                </div>
+                <div class="install-card">
+                    <h3>Automated CI/CD</h3>
+                    <code>cp .github/workflows/*.yml</code>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="roadmap">
+            <h2>The Road to 100k Stars</h2>
+            <p class="section-sub">How we are taking over the AI coding space.</p>
+            <div class="timeline">
+                <div class="timeline-item done">
+                    <div class="marker"></div>
+                    <div class="content">
+                        <h3>Phase 1: The Foundation</h3>
+                        <p>Core CPU and execution benchmarking tools (Python, JS, Bash, PS1).</p>
+                    </div>
+                </div>
+                <div class="timeline-item done">
+                    <div class="marker"></div>
+                    <div class="content">
+                        <h3>Phase 2: The Ecosystem</h3>
+                        <p>Memory tracking, Database optimization, and Chaos Engineering added.</p>
+                    </div>
+                </div>
+                <div class="timeline-item active">
+                    <div class="marker"></div>
+                    <div class="content">
+                        <h3>Phase 3: The CI/CD Takeover</h3>
+                        <p>GitHub Actions integration to automatically block slow PRs before they are merged.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="marker"></div>
+                    <div class="content">
+                        <h3>Phase 4: Marketplace Domination</h3>
+                        <p>Official release on the Claude Plugin Marketplace and Cursor directory.</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Built by <a href="https://github.com/v0idOS">v0idOS</a></p>
+        <p>Built with ⚡ by <a href="https://github.com/v0idOS">v0idOS</a></p>
     </footer>
 </body>
 </html>
