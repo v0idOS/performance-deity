@@ -2,72 +2,63 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**A `CLAUDE.md` template that turns Claude Code into a performance engineering expert.**
+**A performance engineering plugin for Claude Code — and a `CLAUDE.md` template for any AI coding assistant.**
 
-Drop one file into your project root. No install. No config. No plugin loader.
-
----
-
-## What It Does
-
-Claude Code reads `CLAUDE.md` automatically at the start of every session. This file gives it a strict, phased methodology for nine categories of performance work — with explicit rules, required benchmarks, and proof requirements before it can present any change to you.
-
-**The core rule:** Claude cannot call something an optimization unless it has numbers proving it is faster than the baseline.
+Nine benchmark-driven skills that enforce a strict, phased performance methodology. Every skill requires proof before presenting a change: a before/after table with real numbers. No guessing.
 
 ---
 
-## Quickstart
+## Install via Claude Code Plugin
 
-```bash
-# Clone the repo
-git clone https://github.com/v0idOS/performance-deity
-cd performance-deity
-
-# Copy CLAUDE.md into your project
-cp CLAUDE.md /path/to/your/project/CLAUDE.md
-
-# Done. Open Claude Code in your project.
+```
+/plugin marketplace add https://github.com/v0idOS/performance-deity
+/plugin install performance-deity@performance-deity
 ```
 
-For Cursor or Windsurf, copy and rename:
+This gives you nine slash commands in Claude Code:
 
-```bash
-cp CLAUDE.md /path/to/your/project/.cursorrules
-```
-
----
-
-## What's Inside CLAUDE.md
-
-Nine performance sections. Apply the relevant one based on what you're working on:
-
-| Section | Apply when working on... |
+| Command | What it does |
 |---|---|
-| ⚡ Hot-Path Optimizer | Slow functions, execution time, algorithmic efficiency |
-| 🧠 Leak Hunter | Memory leaks, high RAM usage, OOM errors, GC pauses |
-| 🧵 Race Condition Killer | Threading, async concurrency, race conditions, deadlocks |
-| 💾 N+1 Slayer | Slow database queries, ORM performance, missing indexes |
-| 💥 Chaos Engineer | Input hardening, resilience, stress testing, fuzzing |
-| 🌐 Network Squeezer | API payload size, bandwidth, HTTP caching, serialization |
-| 🏗️ CI/CD Accelerator | Build times, Docker, Webpack, GitHub Actions pipelines |
-| 👁️ Telemetry | Observability, logging, tracing, production monitoring |
-| 🎨 Frame-Rate Enforcer | UI rendering performance, React re-renders, CSS animations |
+| `/optimize` | Benchmarks, analyzes Big-O, rewrites, proves improvement |
+| `/memory` | Instruments memory, proves the leak grows, fixes the reference |
+| `/concurrency` | Fires 1k–10k concurrent requests, proves failure, adds atomic ops |
+| `/database` | Runs EXPLAIN ANALYZE, kills N+1 loops, provides CREATE INDEX statements |
+| `/stress-test` | Bombards code with extreme inputs, documents crashes, hardens the boundary |
+| `/network` | Profiles payload bytes, enforces Brotli/ETag, migrates to GraphQL/protobuf |
+| `/build` | Fixes Docker layer order, Webpack caching, GitHub Actions pipelines |
+| `/telemetry` | Wraps code in OpenTelemetry spans, proposes concrete alert rules |
+| `/ui` | Audits React re-renders, GPU-accelerates animations, virtualizes long lists |
 
-Each section is a phased methodology. Phases must be executed in sequence. Every section ends with a mandatory proof step — a before/after comparison table with real numbers.
+---
 
-### Global rules (enforced across all sections)
+## Or: Drop One File (No Plugin Required)
+
+If you're not using Claude Code's plugin system, copy `CLAUDE.md` directly into your project root. Claude Code reads it automatically on every session — no flags, no config.
+
+```bash
+git clone https://github.com/v0idOS/performance-deity
+cp performance-deity/CLAUDE.md /your/project/CLAUDE.md
+```
+
+For Cursor or Windsurf:
+
+```bash
+cp performance-deity/CLAUDE.md /your/project/.cursorrules
+```
+
+---
+
+## Global Rules (Enforced by Both Methods)
 
 - Never suggest a code change for performance without benchmarking the existing code first.
-- Every optimization must include a before/after comparison table.
+- Every optimization must include a before/after comparison table with real numbers.
 - Prefer algorithmic improvements over micro-optimizations.
 - If a proposed change does not measurably beat the baseline, discard it and try a different approach.
-- Every final report must include a one-paragraph explanation of *why* the change is faster.
+- Every final report must explain *why* the change is faster, grounded in CPU architecture, memory layout, or I/O behavior.
 
 ---
 
 ## Included Benchmarking Tools
-
-The `tools/` directory contains cross-platform micro-benchmark runners that `CLAUDE.md` instructs Claude to use:
 
 ```
 tools/
@@ -77,13 +68,13 @@ tools/
 └── benchmark.sh             # Bash/POSIX — outputs Average + P95
 ```
 
-All runners include a warm-up phase. Results are discarded until the runtime is stable.
+All runners include a warm-up phase. Results are not recorded until the runtime is stable.
 
 ---
 
 ## Pre-Commit Hook (Optional)
 
-Blocks commits that contain unresolved `TODO: optimize` markers:
+Blocks commits containing unresolved `TODO: optimize` markers:
 
 ```bash
 cp hooks/pre-commit .git/hooks/pre-commit
@@ -96,17 +87,30 @@ chmod +x .git/hooks/pre-commit
 
 ```
 .
-├── CLAUDE.md              ← The main artifact. Copy this into your project.
+├── CLAUDE.md                   ← Drop-in template for any AI assistant
 ├── README.md
-├── LICENSE                ← MIT
-├── tools/                 ← Benchmark runners referenced by CLAUDE.md
+├── LICENSE                     ← MIT
+├── .claude-plugin/
+│   ├── plugin.json             ← Plugin manifest (Claude Code plugin system)
+│   └── marketplace.json        ← Marketplace catalog (buildwithclaude.com)
+├── skills/                     ← Slash command skill files (Claude Code plugin)
+│   ├── optimize/SKILL.md
+│   ├── memory/SKILL.md
+│   ├── concurrency/SKILL.md
+│   ├── database/SKILL.md
+│   ├── stress-test/SKILL.md
+│   ├── network/SKILL.md
+│   ├── build/SKILL.md
+│   ├── telemetry/SKILL.md
+│   └── ui/SKILL.md
+├── tools/                      ← Benchmark runners
 │   ├── benchmark.py
 │   ├── benchmark.js
 │   ├── Measure-Performance.ps1
 │   └── benchmark.sh
 ├── hooks/
-│   └── pre-commit         ← Optional git hook
-└── archive/               ← Original per-skill SKILL.md files (superseded by CLAUDE.md)
+│   └── pre-commit              ← Optional git hook
+└── archive/                    ← Original SKILL.md files (pre-refactor)
 ```
 
 ---
@@ -114,16 +118,17 @@ chmod +x .git/hooks/pre-commit
 ## Roadmap
 
 - [x] Cross-platform benchmark runners (Python, Node.js, PowerShell, Bash)
-- [x] All nine skills compiled into a single `CLAUDE.md`
-- [x] Global rules and prohibited patterns section
+- [x] All nine skills in a single `CLAUDE.md`
+- [x] Claude Code plugin with proper `marketplace.json` and slash commands
+- [x] MIT license
 - [ ] GitHub Actions workflow: run benchmarks on PRs, fail on P95 regression
-- [ ] `.cursorrules` and Windsurf variants, kept in sync with `CLAUDE.md`
+- [ ] `.cursorrules` variant maintained in sync with `CLAUDE.md`
 
 ---
 
 ## License
 
-[MIT](LICENSE) — use it, fork it, adapt it.
+[MIT](LICENSE)
 
 ---
 

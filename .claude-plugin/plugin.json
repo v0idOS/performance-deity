@@ -1,0 +1,23 @@
+{
+  "name": "performance-deity",
+  "version": "2.1.0",
+  "description": "Nine benchmark-driven performance engineering skills for Claude Code. Adds CPU optimization, memory leak detection, race condition testing, database query analysis, chaos engineering, network payload reduction, CI/CD acceleration, telemetry instrumentation, and UI frame-rate enforcement.",
+  "author": {
+    "name": "v0idOS"
+  },
+  "homepage": "https://v0idOS.github.io/performance-deity",
+  "repository": "https://github.com/v0idOS/performance-deity",
+  "license": "MIT",
+  "keywords": [
+    "performance",
+    "optimization",
+    "benchmarking",
+    "memory-leak",
+    "concurrency",
+    "database",
+    "stress-test",
+    "telemetry",
+    "ui"
+  ],
+  "skills": "./skills"
+}
