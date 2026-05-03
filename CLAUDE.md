@@ -314,6 +314,8 @@ Only visible DOM nodes exist in the document. All others are unmounted.
 
 ## Ephemeral Benchmarking
 
+*Note: If benchmarking fails due to missing imports or dependencies, skip the benchmark script and use the bash `time` command as a fallback.*
+
 Do not rely on ad-hoc timing or guessing. Whenever a benchmark is required:
 1. Write a temporary script (e.g., `.perf-benchmark.js` or `.perf-benchmark.py`) in the user's workspace.
 2. Execute the code with a warm-up phase (discarding at least 10 iterations) to prime caches and JIT.

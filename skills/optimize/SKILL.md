@@ -7,12 +7,13 @@ Execute all four phases in order. Do not skip any phase.
 ## Phase 1 — Establish Baseline
 
 1. Identify the exact code to optimize.
-2. Run a micro-benchmark using the included tools:
+2. Run a micro-benchmark:
    - Write a temporary micro-benchmark script in the user's workspace.
    - The script MUST contain a warm-up phase (discard ≥10 iterations).
    - The script MUST run ≥100 iterations and output the Average and P95 execution time.
    - Run the script using the terminal.
    - Delete the temporary script after recording the results.
+   - *Note: If the script fails due to missing imports or dependencies, skip it and use the bash `time` command as a fallback.*
 3. Record P95 and Average. Do not proceed until the benchmark runs without error.
 4. Report baseline numbers before writing any new code.
 

@@ -1,6 +1,5 @@
 {
   "name": "performance-deity",
-  "version": "2.1.0",
   "description": "Nine benchmark-driven performance engineering skills for Claude Code. Adds CPU optimization, memory leak detection, race condition testing, database query analysis, chaos engineering, network payload reduction, CI/CD acceleration, telemetry instrumentation, and UI frame-rate enforcement.",
   "author": {
     "name": "v0idOS"
