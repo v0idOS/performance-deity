@@ -58,17 +58,11 @@ cp performance-deity/CLAUDE.md /your/project/.cursorrules
 
 ---
 
-## Included Benchmarking Tools
+## Ephemeral Benchmarking (True Zero-Config)
 
-```
-tools/
-├── benchmark.py             # Python — timeit, outputs Average + P95 over 100 iterations
-├── benchmark.js             # Node.js — perf_hooks, outputs Average + P95
-├── Measure-Performance.ps1  # PowerShell — outputs Average + P95
-└── benchmark.sh             # Bash/POSIX — outputs Average + P95
-```
+Unlike other plugins that require you to copy a `tools/` folder into your project, **Performance Deity generates its own benchmarking tools on the fly.**
 
-All runners include a warm-up phase. Results are not recorded until the runtime is stable.
+Whenever Claude needs to prove a latency reduction, it writes an ephemeral micro-benchmark script in the target language (Node.js, Python, Rust, etc.), runs it to collect P95 and Average execution times (including a warm-up phase to prime JIT caches), and then deletes the script. No clutter, no dependencies.
 
 ---
 
@@ -103,11 +97,6 @@ chmod +x .git/hooks/pre-commit
 │   ├── build/SKILL.md
 │   ├── telemetry/SKILL.md
 │   └── ui/SKILL.md
-├── tools/                      ← Benchmark runners
-│   ├── benchmark.py
-│   ├── benchmark.js
-│   ├── Measure-Performance.ps1
-│   └── benchmark.sh
 ├── hooks/
 │   └── pre-commit              ← Optional git hook
 └── archive/                    ← Original SKILL.md files (pre-refactor)

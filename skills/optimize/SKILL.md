@@ -8,11 +8,11 @@ Execute all four phases in order. Do not skip any phase.
 
 1. Identify the exact code to optimize.
 2. Run a micro-benchmark using the included tools:
-   - Python: `python tools/benchmark.py "<code>"`
-   - Node.js: `node tools/benchmark.js "<code>"`
-   - PowerShell: `tools/Measure-Performance.ps1 -Command "<cmd>"`
-   - Bash: `bash tools/benchmark.sh "<cmd>"`
-   - Other language: write a custom benchmark outputting Average and P95 over ≥100 iterations, discarding ≥10 warm-up iterations.
+   - Write a temporary micro-benchmark script in the user's workspace.
+   - The script MUST contain a warm-up phase (discard ≥10 iterations).
+   - The script MUST run ≥100 iterations and output the Average and P95 execution time.
+   - Run the script using the terminal.
+   - Delete the temporary script after recording the results.
 3. Record P95 and Average. Do not proceed until the benchmark runs without error.
 4. Report baseline numbers before writing any new code.
 

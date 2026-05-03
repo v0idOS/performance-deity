@@ -41,11 +41,11 @@ Execute all four phases in order. Do not skip any phase.
 ### Phase 1 — Establish Baseline
 1. Identify the exact code to optimize.
 2. Run a micro-benchmark using the included tools:
-   - Python: `python tools/benchmark.py "<code>"`
-   - Node.js: `node tools/benchmark.js "<code>"`
-   - PowerShell: `tools/Measure-Performance.ps1 -Command "<cmd>"`
-   - Bash: `bash tools/benchmark.sh "<cmd>"`
-   - Unsupported language: Write a custom benchmark that outputs Average and P95 over ≥100 iterations with a warm-up phase (≥10 discarded iterations).
+   - Write a temporary micro-benchmark script in the user's workspace (e.g., `.perf-benchmark.py` or `.perf-benchmark.js`).
+   - The script MUST contain a warm-up phase (discard ≥10 iterations).
+   - The script MUST run ≥100 iterations and output the Average and P95 execution time.
+   - Run the script using the terminal.
+   - Delete the temporary script after recording the results.
 3. Record P95 and Average. Do not proceed until the benchmark runs without error.
 4. Report baseline numbers before writing any new code.
 
@@ -312,16 +312,14 @@ Only visible DOM nodes exist in the document. All others are unmounted.
 
 ---
 
-## Benchmarking Tools
+## Ephemeral Benchmarking
 
-| Language | Command | Output |
-|---|---|---|
-| Python | `python tools/benchmark.py "<snippet>"` | Average and P95 over 100 iterations |
-| Node.js | `node tools/benchmark.js "<snippet>"` | Average and P95 via `perf_hooks` |
-| PowerShell | `tools/Measure-Performance.ps1 -Command "<cmd>"` | Average and P95 |
-| Bash | `bash tools/benchmark.sh "<cmd>"` | Average and P95 |
-
-Always discard the first ≥10 iterations as warm-up before recording results.
+Do not rely on ad-hoc timing or guessing. Whenever a benchmark is required:
+1. Write a temporary script (e.g., `.perf-benchmark.js` or `.perf-benchmark.py`) in the user's workspace.
+2. Execute the code with a warm-up phase (discarding at least 10 iterations) to prime caches and JIT.
+3. Execute the code for at least 100 iterations.
+4. Calculate and output the Average and 95th Percentile (P95) execution times.
+5. Run the script, read the output, and then delete the script.
 
 ---
 
