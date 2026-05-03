@@ -32,6 +32,14 @@ Performance Deity provides 5 interconnected skills (deities) that force the AI t
 **Triggers:** "stress test", "harden this"
 - Acts as a Red Team. Bombards your code with 1GB string payloads, malformed JSON, and network drops to ensure graceful degradation.
 
+### 🌐 6. The Network Squeezer (`performance-deity:network`)
+**Triggers:** "slow api", "network", "payload"
+- Minimizes payload sizes, enforces Brotli/gzip, and rewrites heavy REST calls into GraphQL or Protobuf.
+
+### 🏗️ 7. The CI/CD Accelerator (`performance-deity:build`)
+**Triggers:** "slow build", "webpack", "docker"
+- Optimizes Webpack chunking, Docker layer caching, and reduces GitHub Actions workflow times.
+
 ---
 
 ## Included Tooling
