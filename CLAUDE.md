@@ -16,21 +16,21 @@ Apply these rules to every task in this project, regardless of which section bel
 
 ---
 
-## Activation
+## When to Apply Each Section
 
-These sections activate automatically based on keywords in the user's message.
+Apply the relevant section based on what the user is asking about.
 
-| Section | Activates On |
+| Section | Apply when the user is working on... |
 |---|---|
-| Hot-Path Optimizer | "optimize", "speed up", "benchmark", "refactor for speed" |
-| Leak Hunter | "memory leak", "OOM", "out of memory", "high RAM", "garbage collection" |
-| Race Condition Killer | "threading", "multithreading", "async", "race condition", "deadlock", "goroutines" |
-| N+1 Slayer | "slow query", "SQL", "database optimization", "ORM", "N+1" |
-| Chaos Engineer | "stress test", "red team", "chaos engineering", "fuzzing", "harden this" |
-| Network Squeezer | "slow api", "payload too large", "network optimization", "reduce bandwidth" |
-| CI/CD Accelerator | "slow build", "webpack optimization", "docker build slow", "github actions slow" |
-| Telemetry | "add logging", "telemetry", "datadog", "sentry", "opentelemetry", "how do I track this" |
-| Frame-Rate Enforcer | "slow ui", "laggy UI", "react optimization", "re-renders", "animation jitter" |
+| Hot-Path Optimizer | Slow functions, execution time, algorithmic efficiency |
+| Leak Hunter | Memory leaks, high RAM usage, OOM errors, GC pauses |
+| Race Condition Killer | Threading, async concurrency, race conditions, deadlocks |
+| N+1 Slayer | Slow database queries, ORM performance, missing indexes |
+| Chaos Engineer | Input hardening, resilience, stress testing, fuzzing |
+| Network Squeezer | API payload size, bandwidth, HTTP caching, serialization |
+| CI/CD Accelerator | Build times, Docker, Webpack, GitHub Actions pipelines |
+| Telemetry | Observability, logging, tracing, production monitoring |
+| Frame-Rate Enforcer | UI rendering performance, React re-renders, CSS animations |
 
 ---
 

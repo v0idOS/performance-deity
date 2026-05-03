@@ -1,5 +1,7 @@
 # Performance Deity ⚡
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 **A `CLAUDE.md` template that turns Claude Code into a performance engineering expert.**
 
 Drop one file into your project root. No install. No config. No plugin loader.
@@ -27,39 +29,55 @@ cp CLAUDE.md /path/to/your/project/CLAUDE.md
 # Done. Open Claude Code in your project.
 ```
 
-That's it. Claude Code will load the rules on the next session.
+For Cursor or Windsurf, copy and rename:
+
+```bash
+cp CLAUDE.md /path/to/your/project/.cursorrules
+```
 
 ---
 
 ## What's Inside CLAUDE.md
 
-Nine performance skills that activate automatically based on what you type:
+Nine performance sections. Apply the relevant one based on what you're working on:
 
-| Skill | Triggers On | What It Does |
-|---|---|---|
-| ⚡ Hot-Path Optimizer | "optimize", "speed up", "benchmark" | Benchmarks baseline → analyzes Big-O → refactors → proves improvement with a table |
-| 🧠 Leak Hunter | "memory leak", "OOM", "high RAM" | Instruments memory tracking, proves the leak grows, identifies uncollected references, verifies the fix |
-| 🧵 Race Condition Killer | "race condition", "deadlock", "threading" | Fires 1,000–10,000 concurrent requests at your function, proves it breaks, adds atomic ops or minimal locks |
-| 💾 N+1 Slayer | "slow query", "SQL", "ORM", "N+1" | Runs `EXPLAIN ANALYZE`, identifies missing indexes, rewrites loop queries into batch joins |
-| 💥 Chaos Engineer | "stress test", "harden this", "fuzzing" | Bombards code with 1GB payloads, null values, malformed JSON — documents what breaks, then hardens it |
-| 🌐 Network Squeezer | "slow api", "payload too large", "bandwidth" | Profiles payload size, enforces Brotli/gzip, migrates heavy REST to GraphQL or protobuf |
-| 🏗️ CI/CD Accelerator | "slow build", "docker build slow", "webpack" | Fixes Docker layer order, enables Webpack caching, adds GitHub Actions dependency caching |
-| 👁️ The Watcher | "add logging", "telemetry", "datadog" | Wraps critical paths in OpenTelemetry/Sentry spans with metadata, proposes exact alert rules |
-| 🎨 Frame-Rate Enforcer | "slow ui", "react optimization", "animation jitter" | Audits re-renders, migrates animations to GPU-composited `transform`, virtualizes long lists |
+| Section | Apply when working on... |
+|---|---|
+| ⚡ Hot-Path Optimizer | Slow functions, execution time, algorithmic efficiency |
+| 🧠 Leak Hunter | Memory leaks, high RAM usage, OOM errors, GC pauses |
+| 🧵 Race Condition Killer | Threading, async concurrency, race conditions, deadlocks |
+| 💾 N+1 Slayer | Slow database queries, ORM performance, missing indexes |
+| 💥 Chaos Engineer | Input hardening, resilience, stress testing, fuzzing |
+| 🌐 Network Squeezer | API payload size, bandwidth, HTTP caching, serialization |
+| 🏗️ CI/CD Accelerator | Build times, Docker, Webpack, GitHub Actions pipelines |
+| 👁️ Telemetry | Observability, logging, tracing, production monitoring |
+| 🎨 Frame-Rate Enforcer | UI rendering performance, React re-renders, CSS animations |
+
+Each section is a phased methodology. Phases must be executed in sequence. Every section ends with a mandatory proof step — a before/after comparison table with real numbers.
+
+### Global rules (enforced across all sections)
+
+- Never suggest a code change for performance without benchmarking the existing code first.
+- Every optimization must include a before/after comparison table.
+- Prefer algorithmic improvements over micro-optimizations.
+- If a proposed change does not measurably beat the baseline, discard it and try a different approach.
+- Every final report must include a one-paragraph explanation of *why* the change is faster.
 
 ---
 
 ## Included Benchmarking Tools
 
-The `tools/` directory contains cross-platform micro-benchmark runners that `CLAUDE.md` instructs Claude to use automatically:
+The `tools/` directory contains cross-platform micro-benchmark runners that `CLAUDE.md` instructs Claude to use:
 
 ```
 tools/
-├── benchmark.py          # Python — timeit, outputs Avg + P95 over 100 iterations
-├── benchmark.js          # Node.js — perf_hooks, outputs Avg + P95
-├── Measure-Performance.ps1  # PowerShell — outputs Avg + P95
-└── benchmark.sh          # Bash/POSIX — outputs Avg + P95
+├── benchmark.py             # Python — timeit, outputs Average + P95 over 100 iterations
+├── benchmark.js             # Node.js — perf_hooks, outputs Average + P95
+├── Measure-Performance.ps1  # PowerShell — outputs Average + P95
+└── benchmark.sh             # Bash/POSIX — outputs Average + P95
 ```
+
+All runners include a warm-up phase. Results are discarded until the runtime is stable.
 
 ---
 
@@ -78,35 +96,34 @@ chmod +x .git/hooks/pre-commit
 
 ```
 .
-├── CLAUDE.md             ← The main artifact. Copy this into your project.
+├── CLAUDE.md              ← The main artifact. Copy this into your project.
 ├── README.md
-├── tools/                ← Benchmark runners (used by CLAUDE.md instructions)
+├── LICENSE                ← MIT
+├── tools/                 ← Benchmark runners referenced by CLAUDE.md
 │   ├── benchmark.py
 │   ├── benchmark.js
 │   ├── Measure-Performance.ps1
 │   └── benchmark.sh
 ├── hooks/
-│   └── pre-commit        ← Optional git hook
-└── archive/              ← Legacy per-skill SKILL.md files (superseded by CLAUDE.md)
-    ├── performance-deity/
-    ├── memory-deity/
-    ├── concurrency-deity/
-    ├── database-deity/
-    ├── stress-test-deity/
-    ├── network-deity/
-    ├── build-deity/
-    ├── telemetry-deity/
-    └── ui-deity/
+│   └── pre-commit         ← Optional git hook
+└── archive/               ← Original per-skill SKILL.md files (superseded by CLAUDE.md)
 ```
 
 ---
 
-## Philosophy
+## Roadmap
 
-- **Guessing is a sin.** Measure everything.
-- **Algorithmic efficiency beats language tricks.** Fix the Big-O before tuning the constant.
-- **Proof is mandatory.** Every optimization ships with a before/after table.
-- **Micro-optimizations only matter in proven hot paths.** Don't polish what isn't slow.
+- [x] Cross-platform benchmark runners (Python, Node.js, PowerShell, Bash)
+- [x] All nine skills compiled into a single `CLAUDE.md`
+- [x] Global rules and prohibited patterns section
+- [ ] GitHub Actions workflow: run benchmarks on PRs, fail on P95 regression
+- [ ] `.cursorrules` and Windsurf variants, kept in sync with `CLAUDE.md`
+
+---
+
+## License
+
+[MIT](LICENSE) — use it, fork it, adapt it.
 
 ---
 
