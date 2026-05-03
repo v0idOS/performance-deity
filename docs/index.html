@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Performance Deity - AI Coding Plugin</title>
+    <title>Performance Deity — CLAUDE.md for Claude Code</title>
+    <meta name="description" content="A CLAUDE.md template that turns Claude Code into a performance engineering expert. Drop one file into your project root. No install required.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
@@ -14,7 +15,8 @@
     <nav>
         <div class="logo">Performance<span>Deity</span></div>
         <div class="links">
-            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#features">Skills</a>
             <a href="#roadmap">Roadmap</a>
             <a href="https://github.com/v0idOS/performance-deity">GitHub</a>
         </div>
@@ -22,11 +24,11 @@
 
     <main>
         <header class="hero fade-up">
-            <h1>Guessing is a <span class="accent">Sin</span>.<br><span class="primary">Measure Everything.</span></h1>
-            <p>A ruthlessly strict performance engineering methodology for AI coding agents. Forces your agent to profile, benchmark, and mathematically prove code is faster before you ever see it.</p>
+            <h1>One file.<br><span class="primary">Nine performance skills.</span></h1>
+            <p>A <code>CLAUDE.md</code> template that turns Claude Code into a strict performance engineering expert. Drop it in your project root. No install, no plugin, no config.</p>
             <div class="cta-buttons">
                 <a href="https://github.com/v0idOS/performance-deity" class="btn primary">View on GitHub</a>
-                <a href="https://github.com/v0idOS/performance-deity/tree/main/docs/INSTALL.md" class="btn secondary">Install Plugin</a>
+                <a href="https://raw.githubusercontent.com/v0idOS/performance-deity/main/CLAUDE.md" class="btn secondary">Raw CLAUDE.md</a>
             </div>
             
             <div class="terminal">
@@ -34,62 +36,96 @@
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
-                    <span class="title">v0id-os-agent</span>
+                    <span class="title">claude — project root</span>
                 </div>
                 <div class="terminal-body">
-                    <p><span class="prompt">$</span> /plugin install performance-deity</p>
-                    <p class="success">✔ Ecosystem loaded. 6 Deities online.</p>
-                    <p><span class="prompt">$</span> /plugin performance-deity:optimize</p>
-                    <p class="info">Analyzing Big-O Complexity...</p>
-                    <p class="info">Refactoring O(N^2) array lookup to O(1) Hash Map...</p>
-                    <p class="success">✔ Baseline: 450ms | Optimized: 12ms (3750% faster)</p>
+                    <p><span class="prompt">$</span> cp performance-deity/CLAUDE.md ./CLAUDE.md</p>
+                    <p class="success">✔ Done. Open Claude Code in your project.</p>
+                    <p><span class="prompt">user:</span> optimize this function</p>
+                    <p class="info">→ Running baseline benchmark... P95: 450ms</p>
+                    <p class="info">→ Identified O(n²) nested loop. Rewriting to HashMap lookup...</p>
+                    <p class="info">→ Benchmarking optimized code... P95: 12ms</p>
+                    <p class="success">✔ Baseline: 450ms → Optimized: 12ms (-97.3%)</p>
                 </div>
             </div>
         </header>
 
+        <section id="how-it-works" class="how-it-works fade-up">
+            <h2>How It Works</h2>
+            <p class="section-sub">Claude Code reads <code>CLAUDE.md</code> automatically at session start. The file contains strict, phased instructions that override Claude's default behavior for performance-related tasks.</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-body">
+                        <h3>Copy the file</h3>
+                        <p><code>cp CLAUDE.md /your/project/CLAUDE.md</code></p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-body">
+                        <h3>Open Claude Code</h3>
+                        <p>It reads <code>CLAUDE.md</code> on every session start. No flags, no setup.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-body">
+                        <h3>Use natural language</h3>
+                        <p>Say "optimize this", "memory leak", or "slow query" — the right skill activates automatically.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="features" class="features fade-up">
-            <h2>The Pantheon of Skills</h2>
-            <p class="section-sub">A complete ecosystem for Staff-level Site Reliability Engineering.</p>
+            <h2>Nine Performance Skills</h2>
+            <p class="section-sub">Each skill is a phased methodology with mandatory benchmarking, proof requirements, and prohibited patterns.</p>
             <div class="grid">
                 <div class="card">
                     <div class="icon">⚡</div>
                     <h3>Hot-Path Optimizer</h3>
-                    <p>Writes micro-benchmarks, analyzes Big-O complexity, and proves latency reduction.</p>
+                    <p>Benchmarks baseline, analyzes Big-O, rewrites the algorithm, and proves improvement with a before/after table. Will not present a change without numbers.</p>
                 </div>
                 <div class="card">
                     <div class="icon">🧠</div>
-                    <h3>The Leak Hunter</h3>
-                    <p>Instruments memory tracking, finds uncollected references, and eliminates GC pauses.</p>
+                    <h3>Leak Hunter</h3>
+                    <p>Instruments memory with <code>tracemalloc</code> or <code>process.memoryUsage()</code>, proves the leak grows across iterations, then fixes the uncollected reference.</p>
                 </div>
                 <div class="card">
                     <div class="icon">🧵</div>
                     <h3>Race Condition Killer</h3>
-                    <p>Fires 10k chaos threads to break your async code, then secures it with tight Mutexes.</p>
+                    <p>Fires 1,000–10,000 concurrent requests at the target function, proves it fails, then applies the minimal synchronization primitive needed.</p>
                 </div>
                 <div class="card">
                     <div class="icon">💾</div>
-                    <h3>Database Slayer</h3>
-                    <p>Runs EXPLAIN QUERY PLAN, adds exact SQL indexes, and kills N+1 ORM loops.</p>
+                    <h3>N+1 Slayer</h3>
+                    <p>Runs <code>EXPLAIN ANALYZE</code>, identifies missing indexes, and rewrites ORM loops into batch joins or eager loads with exact <code>CREATE INDEX</code> statements.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">💥</div>
+                    <h3>Chaos Engineer</h3>
+                    <p>Bombards code with 1GB payloads, null values, malformed JSON, and simulated network failures. Documents every crash, then hardens the boundary.</p>
                 </div>
                 <div class="card">
                     <div class="icon">🌐</div>
                     <h3>Network Squeezer</h3>
-                    <p>Enables Brotli compression, GraphQL optimizations, and shrinks API payloads.</p>
+                    <p>Profiles payload byte size, enforces Brotli compression and HTTP cache headers, and migrates heavy REST endpoints to GraphQL or protobuf when over 1MB.</p>
                 </div>
                 <div class="card">
                     <div class="icon">🏗️</div>
-                    <h3>Build Accelerator</h3>
-                    <p>Optimizes Docker layer caching, Webpack chunking, and GitHub Actions pipelines.</p>
+                    <h3>CI/CD Accelerator</h3>
+                    <p>Fixes Docker layer ordering, enables Webpack filesystem caching, and adds GitHub Actions dependency caching keyed on lockfile hashes.</p>
                 </div>
                 <div class="card">
                     <div class="icon">👁️</div>
-                    <h3>The Watcher (Telemetry)</h3>
-                    <p>Automatically wraps code in OpenTelemetry spans so you have X-Ray vision in production.</p>
+                    <h3>Telemetry</h3>
+                    <p>Wraps critical paths in OpenTelemetry or Sentry spans with execution time, query tags, and payload sizes. Always includes a concrete Datadog or Prometheus alert rule.</p>
                 </div>
                 <div class="card">
                     <div class="icon">🎨</div>
-                    <h3>UI Frame-Rate Enforcer</h3>
-                    <p>Secures 60FPS by preventing React re-renders and enforcing GPU hardware acceleration.</p>
+                    <h3>Frame-Rate Enforcer</h3>
+                    <p>Audits React re-renders, migrates animations to GPU-composited <code>transform</code>, and virtualizes lists over 50 items. Target: 60 FPS.</p>
                 </div>
             </div>
         </section>
@@ -99,49 +135,52 @@
             <div class="install-grid">
                 <div class="install-card">
                     <h3>Claude Code</h3>
-                    <code>claude --plugin-dir /repo</code>
+                    <code>cp CLAUDE.md /your/project/CLAUDE.md</code>
+                    <p>Claude Code reads it automatically.</p>
                 </div>
                 <div class="install-card">
-                    <h3>Cursor / OpenCode</h3>
-                    <code>@performance-deity Follow rules</code>
+                    <h3>Cursor / Windsurf</h3>
+                    <code>cp CLAUDE.md /your/project/.cursorrules</code>
+                    <p>Rename to <code>.cursorrules</code> for Cursor.</p>
                 </div>
                 <div class="install-card">
-                    <h3>Automated CI/CD</h3>
-                    <code>cp .github/workflows/*.yml</code>
+                    <h3>Pre-commit Hook</h3>
+                    <code>cp hooks/pre-commit .git/hooks/pre-commit</code>
+                    <p>Blocks commits with unresolved <code>TODO: optimize</code> markers.</p>
                 </div>
             </div>
         </section>
 
         <section id="roadmap" class="roadmap fade-up">
-            <h2>The Road to 100k Stars</h2>
-            <p class="section-sub">How we are taking over the AI coding space.</p>
+            <h2>Roadmap</h2>
+            <p class="section-sub">Where this project is headed.</p>
             <div class="timeline">
                 <div class="timeline-item done">
                     <div class="marker"></div>
                     <div class="content">
-                        <h3>Phase 1: The Foundation</h3>
-                        <p>Core CPU and execution benchmarking tools (Python, JS, Bash, PS1).</p>
+                        <h3>Phase 1 — Benchmarking Tools</h3>
+                        <p>Cross-platform benchmark runners for Python, Node.js, PowerShell, and Bash.</p>
                     </div>
                 </div>
                 <div class="timeline-item done">
                     <div class="marker"></div>
                     <div class="content">
-                        <h3>Phase 2: The Ecosystem</h3>
-                        <p>Memory tracking, Database optimization, and Chaos Engineering added.</p>
+                        <h3>Phase 2 — CLAUDE.md Consolidation</h3>
+                        <p>All nine skills compiled into a single, deployable <code>CLAUDE.md</code> with global rules and prohibited patterns.</p>
                     </div>
                 </div>
                 <div class="timeline-item active">
                     <div class="marker"></div>
                     <div class="content">
-                        <h3>Phase 3: The CI/CD Takeover</h3>
-                        <p>GitHub Actions integration to automatically block slow PRs before they are merged.</p>
+                        <h3>Phase 3 — GitHub Actions Gate</h3>
+                        <p>A reusable workflow that runs the benchmark suite on pull requests and fails the build if P95 regresses beyond a configurable threshold.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="marker"></div>
                     <div class="content">
-                        <h3>Phase 4: Marketplace Domination</h3>
-                        <p>Official release on the Claude Plugin Marketplace and Cursor directory.</p>
+                        <h3>Phase 4 — Cursor & Windsurf Variants</h3>
+                        <p>Adapted rule files for <code>.cursorrules</code> and Windsurf's memory system, maintained in sync with the canonical <code>CLAUDE.md</code>.</p>
                     </div>
                 </div>
             </div>
@@ -153,25 +192,16 @@
     </footer>
 
     <script>
-        // Simple Intersection Observer for fade-up animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+                    obs.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { root: null, rootMargin: '0px', threshold: 0.1 });
 
-        document.querySelectorAll('.fade-up').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
